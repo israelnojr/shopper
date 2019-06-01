@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//frontend Routes.................................
+Route::get('/','HomeController@index');
+
+
+
+//backend Routes.................................
+Route::get('/admin','AdminController@index');
+Route::get('/dashboard','AdminController@dashboard');
+
