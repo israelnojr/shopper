@@ -31,3 +31,13 @@ Route::get('/active/{category_id}','CategoryController@Active');
 Route::get('/edit/{category_id}','CategoryController@edit');
 Route::get('/delete-category/{category_id}','CategoryController@delete');
 Route::post('/update-category/{category_id}','CategoryController@update');
+
+//Manufacturer rated routes
+Route::get('/add-brand','ManufacturerController@index');
+Route::get('/all-brand','ManufacturerController@allBrand');
+Route::post('/save-brand','ManufacturerController@saveBrand');
+Route::get('/inactive-brand/{manufacturer_id}','ManufacturerController@inActive');
+Route::get('/active-brand/{manufacturer_id}','ManufacturerController@Active');
+Route::get('/edit-brand/{manufacturer_id}','ManufacturerController@edit');
+Route::get('/delete-brand/{manufacturer_id}','ManufacturerController@delete');
+Route::post('/update-brand/{manufacturer_id}','ManufacturerController@update');
