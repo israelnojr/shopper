@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateManufacturerTable extends Migration
+class CreateManufacturersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateManufacturerTable extends Migration
      */
     public function up()
     {
-        Schema::create('manufacturer', function (Blueprint $table) {
+        Schema::create('manufacturers', function (Blueprint $table) {
             $table->bigIncrements('manufacturer_id');
             $table->string('manufacturer_name');
             $table->string('manufacturer_description');

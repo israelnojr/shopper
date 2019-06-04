@@ -18,7 +18,7 @@ Route::get('/','HomeController@index');
 //backend Routes.................................
 Route::get('/logout','SuperAdminController@logout');
 Route::get('/admin','AdminController@index');
-Route::get('/dashboard','AdminController@dashboard');
+Route::get('/dashboard','SuperAdminController@index');
 Route::get('/manage','AdminController@manage');
 
 
@@ -41,3 +41,14 @@ Route::get('/active-brand/{manufacturer_id}','ManufacturerController@Active');
 Route::get('/edit-brand/{manufacturer_id}','ManufacturerController@edit');
 Route::get('/delete-brand/{manufacturer_id}','ManufacturerController@delete');
 Route::post('/update-brand/{manufacturer_id}','ManufacturerController@update');
+
+// Product rated routes
+Route::get('/add-product','ProductController@index');
+Route::get('/all-product','ProductController@allProduct');
+Route::post('/save-product','ProductController@saveProduct');
+Route::get('/inactive-product/{product_id}','ProductController@inActive');
+Route::get('/active-product/{product_id}','ProductController@Active');
+Route::get('/edit-product/{productr_id}','ProductController@edit');
+Route::get('/delete-product/{productr_id}','ProductController@delete');
+Route::post('/update-product/{productr_id}','ProductController@update');
+

@@ -298,7 +298,8 @@
 								<i class="halflings-icon white wrench"></i>
 							</a>
 						</li>
-						<!-- start: User Dropdown -->
+						<li><a href="{{URL::to('logout')}}"><i class="halflings-icon off"></i> Logout</a></li>
+						<!-- start: User Dropdown 
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 								<i class="halflings-icon white user"></i> {{Session::get('admin_name')}}
@@ -312,7 +313,7 @@
 								<li><a href="{{URL::to('logout')}}"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>
-						<!-- end: User Dropdown -->
+						end: User Dropdown -->
 					</ul>
 				</div>
 				<!-- end: Header Menu -->
@@ -336,8 +337,8 @@
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Products</span><span class="label label-important"> New </span></a>
 							<ul>
-								<li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet">All Products</span></a></li>
-								<li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Product</span></a></li>
+								<li><a class="submenu" href="{{url::to('all-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">All Products</span></a></li>
+								<li><a class="submenu" href="{{url::to('add-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Product</span></a></li>
 							</ul>	
 						</li>
 						<li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Delivery Man</span></a></li>
