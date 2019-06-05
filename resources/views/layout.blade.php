@@ -57,7 +57,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="{{asset('frontend/images/home/logo.png')}}" alt="" /></a>
+							<a href=" "><img src="{{asset('frontend/images/home/logo.png')}}" alt="" /></a>
 						</div>
 						<div class="btn-group pull-right">
 							<div class="btn-group">
@@ -89,7 +89,7 @@
 								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="{{url::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
@@ -154,18 +154,28 @@
 						</ol>
 						
 						<div class="carousel-inner">
-							<div class="item active">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free E-Commerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+							<?php
+								$publishedSlider = DB::table('sliders')->where('pub_status',1)->get();
+								$isActive =1;
+								foreach($publishedSlider as $Slider){
+									if($isActive == 1){ ?>
+										<div class="item active">
+									<?php }else{?>
+										<div class="item">
+									<?php } ?>
+									<div class="col-sm-6">
+										<h1><span>BEST</span>-OFFERS</h1>
+										<h2>{{$Slider->slider_name}}</h2>
+										<p>{{$Slider->slider_description}}</p>
+										<a href=" {{$Slider->slider_url}} " type="button" class="btn btn-default get">Get it now</a>
+									</div>
+									<div class="col-sm-6">
+										<img src="{{URL::to($Slider->slider_image)}}" class="girl img-responsive" alt="" />
+									</div>
 								</div>
-								<div class="col-sm-6">
-									<img src="{{asset('frontend/images/home/girl1.jpg')}}" class="girl img-responsive" alt="" />
-									<img src="{{asset('frontend/images/home/pricing.png')}}"  class="pricing" alt="" />
-								</div>
-							</div>
+							<?php $isActive++;	}?>
+						
+						<!--
 							<div class="item">
 								<div class="col-sm-6">
 									<h1><span>E</span>-SHOPPER</h1>
@@ -191,7 +201,7 @@
 									<img src="{{asset('frontend/images/home/pricing.png')}}" class="pricing" alt="" />
 								</div>
 							</div>
-							
+						-->
 						</div>
 						
 						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
@@ -242,7 +252,7 @@
 								foreach($publishedCategory as $category){?>
 									<div class="panel panel-default">
 									<div class="panel-heading">
-										<h4 class="panel-title"><a href="#">{{$category->category_name}}</a></h4>
+										<h4 class="panel-title"><a href=" {{URL::to('/product-by-category/'.$category->category_id)}} ">{{$category->category_name}}</a></h4>
 									</div>
 								</div>	
 							<?php	}
@@ -258,7 +268,7 @@
 									$publishedBrand = DB::table('manufacturers')->where('pub_status',1)->get();
 									$brandCount = Manufacturer::count();
 									foreach($publishedBrand as $brand){?>
-										<li><a href="#"> <span class="pull-right">({{$brandCount}})</span>{{$brand->manufacturer_name}}</a></li>
+										<li><a href="{{URL::to('/product-by-brand/'.$brand->manufacturer_id)}}"> <span class="pull-right">({{$brandCount}})</span>{{$brand->manufacturer_name}}</a></li>
 									<?php	}
 									?>
 								</ul>

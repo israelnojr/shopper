@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateManufacturersTable extends Migration
+class CreateSlidersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateManufacturersTable extends Migration
      */
     public function up()
     {
-        Schema::create('manufacturers', function (Blueprint $table) {
-            $table->bigIncrements('manufacturer_id');
-            $table->string('manufacturer_name');
-            $table->string('manufacturer_description');
+        Schema::create('sliders', function (Blueprint $table) {
+            $table->bigIncrements('slider_id');
+            $table->string('slider_name');
+            $table->string('slider_description');
+            $table->string('slider_image');
+            $table->string('slider_url');
             $table->string('pub_status');
             $table->timestamps();
         });
@@ -29,6 +31,6 @@ class CreateManufacturersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('manufacturers');
+        Schema::dropIfExists('sliders');
     }
 }

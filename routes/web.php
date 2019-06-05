@@ -12,6 +12,16 @@
 
 //frontend Routes.................................
 Route::get('/','HomeController@index');
+Route::get('/product-by-category/{category_id}','HomeController@ProductByCategory');
+Route::get('/product-by-brand/{manufacturer_id}','HomeController@ProductByBrand');
+Route::get('/view-product/{product_id}','HomeController@SingleProduct');
+Route::post('/add-to-cart','CartController@AddToCart');
+Route::post('/update-cart','CartController@UpdateCart');
+Route::get('/show-cart','CartController@ShowCart');
+Route::get('/remove-cart/{product_id}','CartController@DeleteCart');
+
+//checkout routes
+Route::get('/checkout','CheckoutController@Checkout');
 
 
 
@@ -51,4 +61,15 @@ Route::get('/active-product/{product_id}','ProductController@Active');
 Route::get('/edit-product/{productr_id}','ProductController@edit');
 Route::get('/delete-product/{productr_id}','ProductController@delete');
 Route::post('/update-product/{productr_id}','ProductController@update');
+
+
+//Slider routes
+Route::get('/add-slider','SliderController@index');
+Route::get('/all-slider','SliderController@allSlider');
+Route::post('/save-slider','SliderController@saveslider');
+Route::get('/inactive-slider/{slider_id}','SliderController@inActive');
+Route::get('/active-slider/{slider_id}','SliderController@Active');
+Route::get('/edit-slider/{sliderr_id}','SliderController@edit');
+Route::get('/delete-slider/{sliderr_id}','SliderController@delete');
+Route::post('/update-slider/{sliderr_id}','SliderController@update');
 

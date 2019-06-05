@@ -44,7 +44,6 @@ class ProductController extends Controller
         $data['pub_status']=$request->pub_status;
 
         $image = $request->file('product_image');
-        $slug = str_slug($request->product_name);
         if($image){
             $imageName = str_random(20);
             $ext = strtolower($image->getClientOriginalExtension());
